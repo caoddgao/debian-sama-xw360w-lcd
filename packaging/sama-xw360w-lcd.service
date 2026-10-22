@@ -1,0 +1,13 @@
+[Unit]
+Description=SAMA XW360W LCD CPU monitor
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/renping/projects/sama-xw360w-lcd
+ExecStart=/home/renping/projects/sama-xw360w-lcd/run.sh run
+
+[Install]
+WantedBy=graphical-session.target
+

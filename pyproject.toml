@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sama-xw360w-lcd"
+version = "0.1.0"
+description = "Guarded Turing rev C screen client for a SAMA XW360W"
+requires-python = ">=3.11"
+dependencies = ["pyserial>=3.5,<4", "Pillow>=11,<13", "numpy>=2,<3"]
+license = "GPL-3.0-or-later"
+
+[project.scripts]
+sama-lcd = "sama_lcd.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

@@ -1,0 +1,3 @@
+# Only the confirmed awake Turing-compatible screen, not the LG monitor ttyACM0.
+SUBSYSTEM=="tty", KERNEL=="ttyACM*", ATTRS{idVendor}=="1d6b", ATTRS{idProduct}=="0121", ATTRS{serial}=="20080411", GROUP="renping", MODE="0660"
+

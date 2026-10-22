@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+*.deb
+vendor/debian-deps/
+preview.png
+log.log
+captures/*
+!captures/README.md
+
