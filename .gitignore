@@ -6,6 +6,9 @@ __pycache__/
 vendor/debian-deps/
 preview.png
 log.log
+assets/themes/official/
 captures/*
 !captures/README.md
 
+config.json
+.config-*.json

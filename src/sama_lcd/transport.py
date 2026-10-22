@@ -20,6 +20,10 @@ class ProtocolMismatch(RuntimeError):
     pass
 
 
+class NoHelloResponse(ProtocolMismatch):
+    """The verified device opened, but did not answer before the read timeout."""
+
+
 def safe_open() -> serial.Serial:
     device = inspect()
     if not (device.readable and device.writable):
@@ -45,6 +49,8 @@ def probe_serial(port: serial.Serial) -> tuple[str, int]:
         raise ProtocolMismatch(f"HELLO 只写入 {count}/{len(hello)} 字节")
     response = port.read(23).decode("ascii", errors="replace").strip("\x00\r\n ")
     inspect()  # Distinguish a disconnect from an invalid protocol reply.
+    if not response:
+        raise NoHelloResponse("已确认的屏幕未应答 HELLO")
     match = re.fullmatch(r"chs_[\w]+\.dev\d+_rom\d+\.(\d+)", response)
     if not match:
         raise ProtocolMismatch(f"HELLO 应答不符合 rev C 格式：{response!r}")

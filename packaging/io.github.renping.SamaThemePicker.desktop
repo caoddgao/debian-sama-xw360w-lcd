@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=先马水冷屏主题
+Comment=选择本机先马官方屏幕主题
+Exec=/home/renping/projects/sama-xw360w-lcd/choose-theme.sh
+Icon=preferences-desktop-theme
+Terminal=false
+Categories=Settings;Utility;

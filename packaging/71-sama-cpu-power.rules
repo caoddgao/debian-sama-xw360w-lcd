@@ -1,0 +1,2 @@
+# Let only the local user's group read this CPU package energy counter.
+ACTION=="add", SUBSYSTEM=="powercap", KERNEL=="intel-rapl:0", ATTR{name}=="package-0", RUN+="/usr/bin/chgrp renping %S%p/energy_uj", RUN+="/usr/bin/chmod 0440 %S%p/energy_uj"

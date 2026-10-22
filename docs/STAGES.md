@@ -4,12 +4,13 @@
 | --- | --- | --- | --- |
 | A 只读识别 | by-id 链接、USB 身份、接口、Tctl 与 `/proc/stat` 已核对 | Windows Hardware Ids 与物理冷头的独立交叉确认 | 无设备改动 |
 | B 协议确认 | 上游 rev C 固定提交与 GPL 许可已审查；本机 `HELLO` 返回 `chs_5inch.dev1_rom1.88` | 设备真实分辨率与固件细节 | 关闭串口即可 |
-| C 最小试屏 | 静态画面与前台两轮连续显示均由用户确认正常；Tctl 与 sensors 一致 | 真实重启、重新登录、USB 失联恢复 | 停止程序 |
+| C 最小试屏 | 静态画面与前台两轮连续显示均由用户确认正常；Tctl 与 sensors 一致 | 修复后的再次重启、重新登录、USB 失联恢复 | 停止程序 |
 | D 样式 | 自绘默认背景与可替换图片入口已备好 | Windows 官方截图、最终排版 | 删除/替换图片 |
-| E 自动启动 | 精确 udev 规则已生效，图形会话用户服务已启用且运行中 | 注销/重启后的真正自启动 | 禁用用户服务并删除规则 |
+| E 自动启动 | 精确 udev 规则已生效；Windows → Debian 首次重启时服务自动启动，但空 HELLO 使其退出；已加限次重试，手动重启服务成功 | 修复后的再次跨系统重启和注销/登录验收 | 禁用用户服务并删除规则 |
 
 临时 ACL 已撤销。当前系统级改动是
-`/etc/udev/rules.d/70-sama-xw360w-lcd.rules` 和
+`/etc/udev/rules.d/70-sama-xw360w-lcd.rules`、
+`/etc/udev/rules.d/71-sama-cpu-power.rules` 和
 `~/.config/systemd/user/` 中指向本项目 unit 的链接。
 完整回退命令见根目录 README。
 
